@@ -17,6 +17,6 @@
 
 
 ## Other
-- [SimpleChat_FrontEnd](https://github.com/seuha516/SimpleChat_FrontEnd)
+- [SimpleChat_FrontEnd](https://github.com/seuha516/simplechat-react-frontend)
 
 
