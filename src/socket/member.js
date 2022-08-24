@@ -76,11 +76,7 @@ export const LogoutMember = (socket) => {
   nickname = `유저_${order}`;
   member[index] = { nickname, username, id, order };
 
-  console.log(
-    `${`<Logout>`.bold.green} ${target.nickname.bold} ${target.username} ===> ${nickname.bold} ${
-      `(${id.substr(0, 5)}..)`.grey
-    }`,
-  );
+  console.log(`${`<Logout>`.bold.green} ${target.nickname.bold} ${target.username} ===> ${nickname.bold} ${`(${id.substr(0, 5)}..)`.grey}`);
 
   io.sockets.emit('memberChange', member);
   io.to(id).emit('introduce', { username, nickname, id });
@@ -101,9 +97,7 @@ export const editProfileMember = ({ socket, data }) => {
   nickname = order > 1 ? `${nickname}_${order}` : nickname;
   member[index] = { nickname, username, id, order };
 
-  console.log(
-    `${`<Edit>`.bold.green} ${pastname} ===> ${`${nickname}`.bold} ${username} ${`(${id.substr(0, 5)}..)`.grey}`,
-  );
+  console.log(`${`<Edit>`.bold.green} ${pastname} ===> ${`${nickname}`.bold} ${username} ${`(${id.substr(0, 5)}..)`.grey}`);
 
   io.sockets.emit('memberChange', member);
   io.to(id).emit('introduce', { username, nickname, id });
@@ -118,15 +112,10 @@ export const DeleteMember = (socket) => {
 
   member.splice(index, 1);
 
-  console.log(
-    `${`<Disconnect>`.bold.red} ${`${target.nickname}`.bold} ${target.username} ${
-      `(${target.id.substr(0, 5)}..)`.grey
-    }`,
-  );
+  console.log(`${`<Disconnect>`.bold.red} ${`${target.nickname}`.bold} ${target.username} ${`(${target.id.substr(0, 5)}..)`.grey}`);
 
   io.sockets.emit('memberChange', member);
 };
-
 export const GetMember = (socket) => {
   io.to(socket.id).emit('memberChange', member);
 };
